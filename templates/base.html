@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Uploader</title>
+    <style>
+      .upload-form {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .upload-status {
+        margin-top: 10px;
+        padding: 10px;
+      }
+      .success {
+        color: green;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="upload-form">
+      <h2>File Upload</h2>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" multiple />
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+    <div class="upload-status">
+      {{if .Success}}
+      <p class="success">{{.Message}}</p>
+      {{end}} {{if .Error}}
+      <p class="error">{{.Error}}</p>
+      {{end}}
+    </div>
+  </body>
+</html>
